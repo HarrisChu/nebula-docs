@@ -7,22 +7,11 @@ The `WHERE` clause filters the outputs by conditions.
 * nGQL extensions such as `GO` and `LOOKUP`.
 * OpenCypher syntax such as `MATCH` and `WITH`.
 
-## Syntax
-
-```ngql
-WHERE <expression> [ AND|OR|XOR <expression> ...])
-```
-
 ## OpenCypher compatibility
 
-The following features are not supported (TODO: planning):
+* Using patterns in `WHERE` is not supported (TODO: planning), for example `WHERE (v)-->(v2)`.
 
-* Filter on dynamically-calculated property, for example `WHERE v[toLower("AGE")] < 30`.
-* Use the `exists()` function to filter on the existence of a property.
-* Use patterns in `WHERE`, for example `WHERE (v)-->(v2)`.
-* Use `IS NULL` to filter on null.
-
-[Filtering on edge rank](#filter_on_edge_rank) is a native nGQL feature. It only applies to nGQL extensions such as `GO` and `LOOKUP` because the concept edge rank does not exist in openCypher.
+* [Filtering on edge rank](#filter_on_edge_rank) is a native nGQL feature. It only applies to nGQL extensions such as `GO` and `LOOKUP` because the concept edge rank does not exist in openCypher.
 
 ## Basic usage
 

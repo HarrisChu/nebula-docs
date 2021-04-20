@@ -3,15 +3,15 @@ site_name: Nebula Graph Database Manual
 site_description: Documentation for Nebula Graph Database
 site_author: Nebula Graph
 site_url: https://docs.nebula-graph.io
-edit_uri: ''
+edit_uri: 'edit/master/docs-2.0/'
 docs_dir: docs-2.0
 
 # repository
-repo_name: 'vesoft-inc/nebula'
-repo_url: 'https://github.com/vesoft-inc/nebula'
+repo_name: 'vesoft-inc/nebula-docs'
+repo_url: 'https://github.com/vesoft-inc/nebula-docs'
 
 # Copyright
-copyright: Copyright &copy; 2020 Nebula Graph
+copyright: Copyright &copy; 2021 Nebula Graph
 
 # Configuration
 theme:
@@ -19,44 +19,35 @@ theme:
     logo: 'https://cloud-cdn.nebula-graph.com.cn/vesoft-nebula-logo-white.png'
     favicon: 'assets/images/favicon.ico'
     palette:
-        primary: 'indigo'
-        accent: 'indigo'
-    feature:
-        tabs: false
+      primary: 'white'
+      accent: 'white'
+    features:
+      - navigation.top
     language: 'en'
 
 extra_css:
   - 'stylesheets/logo.css'
-#     - 'theme/structor-menu.css'
-#     - 'theme/extra.css'
-
-# Customization
   - css/version-select.css
 extra:
-    social:
-      - type: 'github'
-        link: 'https://github.com/vesoft-inc/nebula'
-      - type: 'weibo'
-        link: 'https://www.weibo.com/u/7122684542?is_hot=1'
-      - type: 'twitter'
-        link: 'https://twitter.com/NebulaGraph'
-      - type: 'linkedin'
-        link: 'https://www.linkedin.com/company/vesoft-nebula-graph/'
-      - type: 'facebook'
-        link: 'https://www.facebook.com/NebulaGraph/'
-      - type: 'slack'
-        link: 'https://app.slack.com/client/TJB3N2BPD/CJNFUM7AR'
+  nebula:
+    release: 2.0.1
+    nightly: nightly
+  version:
+    method: mike
+  social:
+    - icon: 'fontawesome/brands/github'
+      link: 'https://github.com/vesoft-inc/nebula-docs'
 
 nav:
-    # - Nebula Graph 2.0:
-    #   - https://github.com/vesoft-inc/nebula-docs/tree/master/docs-2.0
-
+  - About: README.md
   - Introduction:
       - What is Nebula Graph: 1.introduction/1.what-is-nebula-graph.md
       - Date model: 1.introduction/2.data-model.md
       - Nebula Graph architecture:
         - Architecture overview: 1.introduction/3.nebula-graph-architecture/1.architecture-overview.md
         - Meta Service: 1.introduction/3.nebula-graph-architecture/2.meta-service.md
+        - Graph Service: 1.introduction/3.nebula-graph-architecture/3.graph-service.md
+        - Storage Service:  1.introduction/3.nebula-graph-architecture/4.storage-service.md
 
   - Quick start:
       - FAQ: 2.quick-start/0.FAQ.md
@@ -99,27 +90,29 @@ nav:
           - Precedence: 3.ngql-guide/5.operators/9.precedence.md
 
       - Functions and expressions:
-          - Math: 3.ngql-guide/6.functions-and-expressions/1.math.md
-          - String: 3.ngql-guide/6.functions-and-expressions/2.string.md
-          - Date and time: 3.ngql-guide/6.functions-and-expressions/3.date-and-time.md
-          - Schema: 3.ngql-guide/6.functions-and-expressions/4.schema.md
+          - Math functions: 3.ngql-guide/6.functions-and-expressions/1.math.md
+          - String functions: 3.ngql-guide/6.functions-and-expressions/2.string.md
+          - Date and time functions: 3.ngql-guide/6.functions-and-expressions/3.date-and-time.md
+          - Schema functions: 3.ngql-guide/6.functions-and-expressions/4.schema.md
           - Case expressions: 3.ngql-guide/6.functions-and-expressions/5.case-expressions.md
-          - List: 3.ngql-guide/6.functions-and-expressions/6.list.md
+          - List functions: 3.ngql-guide/6.functions-and-expressions/6.list.md
           - count(): 3.ngql-guide/6.functions-and-expressions/7.count.md
-          - Predicate: 3.ngql-guide/6.functions-and-expressions/8.predicate.md
+          - collect(): 3.ngql-guide/6.functions-and-expressions/10.collect.md
+          - reduce(): 3.ngql-guide/6.functions-and-expressions/11.reduce.md
+          - hash(): 3.ngql-guide/6.functions-and-expressions/12.hash.md
+          - Predicate functions: 3.ngql-guide/6.functions-and-expressions/8.predicate.md
           - User-defined functions: 3.ngql-guide/6.functions-and-expressions/9.user-defined-functions.md
-          - Collect: 3.ngql-guide/6.functions-and-expressions/10.collect.md
-          - Reduce: 3.ngql-guide/6.functions-and-expressions/11.reduce.md
 
       - General queries statements:
           - Match: 3.ngql-guide/7.general-query-statements/2.match.md
           - LOOKUP: 3.ngql-guide/7.general-query-statements/5.lookup.md
           - GO: 3.ngql-guide/7.general-query-statements/3.go.md
           - FETCH: 3.ngql-guide/7.general-query-statements/4.fetch.md
+          - UNWIND: 3.ngql-guide/7.general-query-statements/7.unwind.md
           - SHOW:
             - SHOW CHARSET: 3.ngql-guide/7.general-query-statements/6.show/1.show-charset.md
             - SHOW COLLATION: 3.ngql-guide/7.general-query-statements/6.show/2.show-collation.md
-            - SHOW CONFIGS: 3.ngql-guide/7.general-query-statements/6.show/3.show-configs.md
+#            - SHOW CONFIGS: 3.ngql-guide/7.general-query-statements/6.show/3.show-configs.md
             - SHOW CREATE SPACE: 3.ngql-guide/7.general-query-statements/6.show/4.show-create-space.md
             - SHOW CREATE TAGS/EDGES: 3.ngql-guide/7.general-query-statements/6.show/5.show-create-tags-edges.md
             - SHOW HOSTS: 3.ngql-guide/7.general-query-statements/6.show/6.show-hosts.md
@@ -141,6 +134,7 @@ nav:
           - TTL: 3.ngql-guide/8.clauses-and-options/ttl-options.md
           - WHERE: 3.ngql-guide/8.clauses-and-options/where.md
           - YIELD: 3.ngql-guide/8.clauses-and-options/yield.md
+          - WITH: 3.ngql-guide/8.clauses-and-options/with.md
 
       - Space statements:
           - CREATE SPACE: 3.ngql-guide/9.space-statements/1.create-space.md
@@ -167,19 +161,18 @@ nav:
           - DELETE VERTEX: 3.ngql-guide/12.vertex-statements/4.delete-vertex.md
           - UPDATE VERTEX: 3.ngql-guide/12.vertex-statements/2.update-vertex.md
           - UPSERT VERTEX: 3.ngql-guide/12.vertex-statements/3.upsert-vertex.md
-          - FETCH VERTEX: 3.ngql-guide/12.vertex-statements/5.fetch-vertex.md
 
       - Edge statements:
         - INSERT EDGE: 3.ngql-guide/13.edge-statements/1.insert-edge.md
         - DELETE EDGE: 3.ngql-guide/13.edge-statements/4.delete-edge.md
         - UPDATE EDGE: 3.ngql-guide/13.edge-statements/2.update-edge.md
         - UPSERT EDGE: 3.ngql-guide/13.edge-statements/3.upsert-edge.md
-        - FETCH EDGE: 3.ngql-guide/13.edge-statements/5.fetch-edge.md
 
       - Native index statements:
         - Index overview: 3.ngql-guide/14.native-index-statements/README.md
         - CREATE INDEX: 3.ngql-guide/14.native-index-statements/1.create-native-index.md
         - SHOW INDEX: 3.ngql-guide/14.native-index-statements/2.show-native-indexes.md
+        - SHOW CREATE INDEX: 3.ngql-guide/14.native-index-statements/2.1.show-create-index.md
         - DESCRIBE INDEX: 3.ngql-guide/14.native-index-statements/3.describe-native-index.md
         - REBUILD INDEX: 3.ngql-guide/14.native-index-statements/4.rebuild-native-index.md
         - SHOW INDEX STATUS: 3.ngql-guide/14.native-index-statements/5.show-native-index-status.md
@@ -202,15 +195,14 @@ nav:
       - Operation and maintenance statements:
 
         # - CONFIG syntax: 3.ngql-guide/18.operation-and-maintenance-statements/1.configs-syntax.md
+        - BALANCE syntax: 3.ngql-guide/18.operation-and-maintenance-statements/2.balance-syntax.md
         - Job statements: 3.ngql-guide/18.operation-and-maintenance-statements/4.job-statements.md
 
       - Appendix:
-          - Comments: 3.ngql-guide/20.appendix.md/comments.md
-          - Hash: 3.ngql-guide/20.appendix.md/hash.md
-          - Identifier Case Sensitivity: 3.ngql-guide/20.appendix.md/identifier-case-sensitivity.md
-          - Keywords and reserved words: 3.ngql-guide/20.appendix.md/keywords-and-reserved-words.md
-          - VID and Partition: 3.ngql-guide/20.appendix.md/vid-partition.md
-
+          - Comments: 3.ngql-guide/20.appendix/comments.md
+          - Identifier Case Sensitivity: 3.ngql-guide/20.appendix/identifier-case-sensitivity.md
+          - Keywords and reserved words: 3.ngql-guide/20.appendix/keywords-and-reserved-words.md
+          - VID and Partition: 3.ngql-guide/20.appendix/vid-partition.md
 
   - Deployment and installation:
       - Resource preparations: 4.deployment-and-installation/1.resource-preparations.md
@@ -218,6 +210,7 @@ nav:
           - Install Nebula Graph by compiling the source code: 4.deployment-and-installation/2.compile-and-install-nebula-graph/1.install-nebula-graph-by-compiling-the-source-code.md
           - Install Nebula Graph with RPM or DEB package: 4.deployment-and-installation/2.compile-and-install-nebula-graph/2.install-nebula-graph-by-rpm-or-deb.md
       - Deploy Nebula Graph cluster: 4.deployment-and-installation/deploy-nebula-graph-cluster.md
+      - Upgrade Nebula Graph: 4.deployment-and-installation/3.upgrade-nebula-graph.md
 
   - Configurations and logs:
       - Configurations:
@@ -244,49 +237,15 @@ nav:
           - Use BR to restore data: 7.data-security/2.backup-restore/4.br-restore-data.md
       - Manage snapshots: 7.data-security/3.manage-snapshot.md
 
-  - Data migration:
-      - Nebula Exchange:
-        - About Nebula Exchange:
-          - What is Nebula Exchange: nebula-exchange/about-exchange/ex-ug-what-is-exchange.md
-          - Limitations: nebula-exchange/about-exchange/ex-ug-limitations.md
-          - Glossary: nebula-exchange/about-exchange/ex-ug-terms.md
-          - FAQ: nebula-exchange/about-exchange/ex-ug-faq.md
-        - Compile Exchange: nebula-exchange/ex-ug-compile.md
-        - Examples:
-          - Use Exchange: nebula-exchange/use-exchange/ex-ug-import-steps.md
-          - Import data from CSV files: nebula-exchange/use-exchange/ex-ug-import-from-csv.md
-          - Import data from JSON files: nebula-exchange/use-exchange/ex-ug-import-json.md
-          - Import data from HIVE: nebula-exchange/use-exchange/ex-ug-import-hive.md
-        - Parameter reference:
-          - Spark related parameters: nebula-exchange/parameter-reference/ex-ug-paras-spark.md
-          - Nebula Graph related parameters: nebula-exchange/parameter-reference/ex-ug-paras-nebulagraph.md
-          - Import command parameters: nebula-exchange/parameter-reference/ex-ug-para-import-command.md
+  - Service Tuning:
+      - Compaction: 8.service-tuning/compaction.md
+      - Storage load balance: 8.service-tuning/load-balance.md
+  - Contribution:
+      - How to Contribute: 15.contribution/how-to-contribute.md
 
-  - Nebula Graph Studio:
-      - About Nebula Graph Studio:
-          - What is Studio: nebula-studio/about-studio/st-ug-what-is-graph-studio.md
-          - Limitations: nebula-studio/about-studio/st-ug-limitations.md
-          - Check updates: nebula-studio/about-studio/st-ug-check-updates.md
+  - 中文手册: https://docs.nebula-graph.com.cn/
 
-      - Deploy and connect:
-          - Deploy Studio: nebula-studio/install-configure/st-ug-deploy.md
-          - Connect to Nebula Graph: nebula-studio/install-configure/st-ug-connect.md
-
-      - Quick start:
-          - Design a schema: nebula-studio/quick-start/st-ug-plan-schema.md
-          - Prepare CSV files: nebula-studio/quick-start/st-ug-prepare-csv.md
-          - Create a schema: nebula-studio/quick-start/st-ug-create-schema.md
-          - Import data: nebula-studio/quick-start/st-ug-import-data.md
-          - Query graph data: nebula-studio/quick-start/st-ug-explore.md
-
-      - Operation guide:
-          - Use Console:
-              - Open in Explore: nebula-studio/use-console/st-ug-open-in-explore.md
-              - View subgraphs: nebula-studio/use-console/st-ug-visualize-subgraph.md
-
-
-  # - 中文手册:
-  #     - https://docs.nebula-graph.com.cn/
+  - PDF: ./pdf/NebulaGraph-EN.pdf      
 
 # Extensions
 markdown_extensions:
@@ -296,13 +255,28 @@ markdown_extensions:
   - toc:
         permalink: true
         separator: "_"
+#        toc_depth: 1
   - mdx_truly_sane_lists
   - pymdownx.superfences
-
 
 # Plugins
 plugins:
   - search
+  - macros
+  - git-revision-date-localized
+  - with-pdf:
+      copyright: 2021 Vesoft Inc.
+      cover_subtitle: v2.0.1
+      author: Min Wu, Yao Zhou, Cooper Liang
+      cover: true 
+      back_cover: true
+      cover_logo: 'https://cloud-cdn.nebula-graph.com.cn/nebula-for-pdf.png'
+      output_path: pdf/NebulaGraph-EN.pdf
+      show_anchors: true
+
+google_analytics:
+  - UA-60523578-16
+  - auto
 
 extra_javascript:
   - js/version-select.js
