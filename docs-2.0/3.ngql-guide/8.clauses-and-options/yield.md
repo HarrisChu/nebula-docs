@@ -9,13 +9,15 @@
 
 ## OpenCypher Compatibility
 
-This topic applies to nGQL extensions only. For the openCypher syntax, use [`RETURN`](return.md).
+This topic applies to native nGQL only. For the openCypher syntax, use [`RETURN`](return.md).
 
 `YIELD` has different functions in openCypher and nGQL.
 
 * In openCypher, `YIELD` is used in the `CALL[…YIELD]` clause to specify the output of the procedure call.
 
-    >**NOTE:** NGQL does not support `CALL[…YIELD]` yet.
+  !!! note
+
+        NGQL does not support `CALL[…YIELD]` yet.
 
 * In nGQL, `YIELD` works like `RETURN` in openCypher.
 

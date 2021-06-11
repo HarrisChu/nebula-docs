@@ -4,13 +4,15 @@
 
 The `WITH` clause can take the output from a query part, process it, and pass it to the next query part as the input.
 
-`WITH` has a similar function with the [pipe](../5.operators/4.pipe.md) symbol in nGQL-extension, but they work in different ways.
+`WITH` has a similar function with the [pipe](../5.operators/4.pipe.md) symbol in native nGQL, but they work in different ways.
 
 `WITH` only works in the openCypher syntax, such as in `MATCH` or `UNWIND`.
 
-In the nGQL-extensions such as `GO` or `FETCH`, use pipe symbols (`|`) instead.
+In native nGQL statements such as `GO` or `FETCH`, use pipe symbols (`|`) instead.
 
-> **DON'T:** Don't use pipe symbols in the openCypher syntax or use `WITH` in the nGQL extensions.
+!!! danger
+
+    Don't use pipe symbols in the openCypher syntax or use `WITH` in native nGQL statements. Such operations may cause unpredictable results.
 
 ## Combine statements and form a composite query
 
@@ -125,4 +127,24 @@ nebula> MATCH (v:player) \
 | ["Yao Ming", "Vince Carter", "Tracy McGrady"] |
 +-----------------------------------------------+
 Got 1 rows (time spent 3498/4222 us)
+```
+
+## Use with RETURN
+
+Set a alias using a `WITH` clause, and then output the result through a `RETURN` clause.
+
+```ngql
+nebula> WITH [1, 2, 3] AS list  RETURN 3 IN list AS r;
++------+
+| r    |
++------+
+| true |
++------+
+
+nebula> WITH 4 AS one, 3 AS two RETURN one > two AS result;
++--------+
+| result |
++--------+
+| true   |
++--------+
 ```

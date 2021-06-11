@@ -4,11 +4,11 @@ TTL indicates time to live. Use the [TTL options](#ttl_options) to specify a tim
 
 ## OpenCypher Compatibility
 
-This topic applies to nGQL extensions only.
+This topic applies to native nGQL only.
 
 ## Precautions
 
-* You CANNOT modify a property with TTL options on it.
+* You CANNOT modify a property schema with TTL options on it.
 
 * TTL options and indexes CANNOT coexist on a tag or an edge type. Not even if you try to set them on different properties.
 
@@ -32,11 +32,13 @@ The expired data are still stored on the disk, but queries will filter them out.
 
 Nebula Graph automatically deletes the expired data and reclaims the disk space during the next [compaction](../../8.service-tuning/compaction.md).
 
-> **NOTE:** If TTL is [disabled](#remove_a_timeout), the corresponding data deleted after the last compaction can be queried again.
+!!! note
+
+    If TTL is [disabled](#remove_a_timeout), the corresponding data deleted after the last compaction can be queried again.
 
 ## TTL options
 
-The nGQL TTL feature has the following options.
+The native nGQL TTL feature has the following options.
 
 |Option|Description|
 |-|-|
@@ -96,10 +98,9 @@ To disable TTL and remove the timeout on a property, use the following approache
     nebula> ALTER TAG t1 DROP (a);
     ```
 
-* Set `ttl_duration` to 0. This operation keeps the TTL options and prevents the property from expiring.
+* Set `ttl_duration` to 0. This operation keeps the TTL options and prevents the property from expiring and the property schema from being modified.
 
     ```ngql
     nebula> ALTER TAG t1 ttl_duration = 0;
     ```
 
-    > **CAUTION:** Even when `ttl_duration` is 0, you CANNOT alter the property because it still has TTL options.
